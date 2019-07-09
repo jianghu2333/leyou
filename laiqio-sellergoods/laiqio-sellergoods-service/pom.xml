@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>laiqio-sellergoods</artifactId>
-        <groupId>com.leyou.parent</groupId>
+        <groupId>com.laiqio.sellergoods</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -12,16 +12,22 @@
     <artifactId>laiqio-sellergoods-service</artifactId>
     <dependencies>
 
+        <!--web启动器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--amqp启动器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
         <!--Eureka客户端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.leyou.item.interface</groupId>
-            <artifactId>leyou-item-interface</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <!-- mybatis启动器 -->
@@ -51,24 +57,13 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper-base</artifactId>
-            <version>1.0.1</version>
-            <scope>compile</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.leyou.parent</groupId>
-            <artifactId>laiqio-sellergoods-interface</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -87,8 +82,50 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
         </dependency>
-    </dependencies>
 
+        <!--公共对象-->
+        <dependency>
+            <groupId>com.leyou.common</groupId>
+            <artifactId>leyou-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+
+
+
+        <!--配置管理依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-bus</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.laiqio.sellergoods</groupId>
+            <artifactId>laiqio-sellergoods-interface</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>app</finalName>
@@ -118,5 +155,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

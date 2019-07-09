@@ -73,6 +73,7 @@ public class SellerController {
 	@RequestMapping("/update")
 	public ResponseEntity<Void> update(@RequestBody Seller seller){
 		try {
+
 			sellerService.update(seller);
 			return  ResponseEntity.status(HttpStatus.ACCEPTED).build();
 		} catch (Exception e) {
